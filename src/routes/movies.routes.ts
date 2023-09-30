@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createMovie, readMovies } from '../logic';
+import { createMovie, readMovies, readOneMovie } from '../logic';
 
 export const moviesRoutes = Router();
 
