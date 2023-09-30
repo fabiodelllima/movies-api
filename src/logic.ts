@@ -33,7 +33,7 @@ export const readMovies = async (
 
   if (req.query.category) {
     query = format(
-      `SELECT * FROM movies WHERE category = %L;`,
+      `SELECT * FROM movies WHERE category ILIKE %L;`,
       req.query.category
     );
   }
