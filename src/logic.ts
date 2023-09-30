@@ -44,9 +44,7 @@ export const readMovies = async (
 
   const data = await client.query(query);
 
-  return res
-    .status(200)
-    .json({ count: data.rowCount, movies: data.rows });
+  return res.status(200).json(data.rows);
 };
 
 export const readOneMovie = async (
