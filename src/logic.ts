@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import format from 'pg-format';
-import { IMovie } from './interfaces';
+import { IMovie, TMovieUpdateData } from './interfaces';
 import { client } from './database';
 
 export const createMovie = async (
@@ -55,6 +55,38 @@ export const readOneMovie = async (
   );
 
   const data = await client.query(query);
+
+  return res.status(200).json(data.rows[0]);
+};
+
+export const updatePartialMovie = async (
+  req: Request,
+  res: Response
+) => {
+  let objData: TMovieUpdateData = {};
+
+  Object.entries(req.body).forEach(([key, value]) => {
+    if (key === 'name' || key === 'category') {
+      if (typeof value === 'string') {
+        objData[key] = value;
+      }
+    }
+
+    if (key === 'duration' || key === 'price') {
+      if (typeof value === 'number') {
+        objData[key] = value;
+      }
+    }
+  });
+
+  const queryConfig = format(
+    `UPDATE movies SET (%I) = ROW (%L) WHERE id = %L RETURNING *;`,
+    Object.keys(objData),
+    Object.values(objData),
+    req.params.id
+  );
+
+  const data = await client.query(queryConfig);
 
   return res.status(200).json(data.rows[0]);
 };

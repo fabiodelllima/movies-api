@@ -5,3 +5,5 @@ export interface IMovie {
   duration: number;
   price: number;
 }
+
+export type TMovieUpdateData = Partial<Omit<IMovie, 'id'>>;
