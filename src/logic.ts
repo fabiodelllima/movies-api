@@ -38,12 +38,10 @@ export const readMovies = async (
     );
 
     const data = await client.query(query);
-
     return res.status(200).json(data.rows);
   }
 
   const data = await client.query(query);
-
   return res.status(200).json(data.rows);
 };
 
