@@ -1,0 +1,20 @@
+{
+  "name": "m4-s2-movies-fabiodelllima",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsnd --respawn src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "pg-format": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "@types/pg": "^8.10.3",
+    "@types/pg-format": "^1.0.3",
+    "typescript": "^5.2.2"
+  }
+}
