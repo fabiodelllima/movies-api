@@ -70,5 +70,5 @@ export const deleteMovie = async (
 
   await client.query(query);
 
-  return res.send(204).json();
+  return res.status(204).json();
 };
