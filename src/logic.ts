@@ -58,3 +58,17 @@ export const readOneMovie = async (
 
   return res.status(200).json(data.rows[0]);
 };
+
+export const deleteMovie = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const query = format(
+    `DELETE FROM movies WHERE id = %L;`,
+    req.params.id
+  );
+
+  await client.query(query);
+
+  return res.send(204).json();
+};
