@@ -24,3 +24,23 @@ export const createMovie = async (
 
   return res.status(201).json(data.rows[0]);
 };
+
+export const readMovies = async (
+  req: Request,
+  res: Response
+) => {
+  let query = `SELECT * FROM movies;`;
+
+  if (req.query.category) {
+    query = format(
+      `SELECT * FROM movies WHERE category = %L;`,
+      req.query.category
+    );
+  }
+
+  const data = await client.query(query);
+
+  return res
+    .status(200)
+    .json({ count: data.rowCount, movies: data.rows });
+};
