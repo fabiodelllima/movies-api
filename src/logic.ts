@@ -28,7 +28,7 @@ export const createMovie = async (
 export const readMovies = async (
   req: Request,
   res: Response
-) => {
+): Promise<Response> => {
   let query = `SELECT * FROM movies;`;
 
   if (req.query.category) {
@@ -48,7 +48,7 @@ export const readMovies = async (
 export const readOneMovie = async (
   req: Request,
   res: Response
-) => {
+): Promise<Response> => {
   const query = format(
     `SELECT * FROM movies WHERE id = %L`,
     req.params.id
