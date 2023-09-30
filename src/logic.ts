@@ -44,3 +44,17 @@ export const readMovies = async (
     .status(200)
     .json({ count: data.rowCount, movies: data.rows });
 };
+
+export const readOneMovie = async (
+  req: Request,
+  res: Response
+) => {
+  const query = format(
+    `SELECT * FROM movies WHERE id = %L`,
+    req.params.id
+  );
+
+  const data = await client.query(query);
+
+  return res.status(200).json(data.rows[0]);
+};
