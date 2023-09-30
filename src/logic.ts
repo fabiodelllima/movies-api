@@ -36,6 +36,10 @@ export const readMovies = async (
       `SELECT * FROM movies WHERE category ILIKE %L;`,
       req.query.category
     );
+
+    const data = await client.query(query);
+
+    return res.status(200).json(data.rows);
   }
 
   const data = await client.query(query);
