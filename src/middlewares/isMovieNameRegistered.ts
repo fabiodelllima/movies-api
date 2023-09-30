@@ -15,8 +15,8 @@ export const isMovieNameRegistered = async (
   const data = await client.query(query);
 
   if (data.rows[0]) {
-    return res.status(403).json({
-      message: 'This movie name is already registered.',
+    return res.status(409).json({
+      message: 'Movie name already exists!',
     });
   }
 

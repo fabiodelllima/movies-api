@@ -15,7 +15,7 @@ export const isMovieIdValid = async (
   const data = await client.query(query);
 
   if (!data.rows[0]) {
-    return res.status(404).json({ message: 'Movie not found.' });
+    return res.status(404).json({ message: 'Movie not found!' });
   }
 
   next();
