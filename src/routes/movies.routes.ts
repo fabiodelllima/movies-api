@@ -11,11 +11,13 @@ import { isMovieNameRegistered } from '../middlewares/isMovieNameRegistered';
 
 export const moviesRoutes = Router();
 
-moviesRoutes.post('/', isMovieNameRegistered, createMovie);
-
 moviesRoutes.get('/', readMovies);
 
 moviesRoutes.get('/:id', isMovieIdValid, readOneMovie);
+
+moviesRoutes.post('/', isMovieNameRegistered, createMovie);
+
+moviesRoutes.delete('/:id', isMovieIdValid, deleteMovie);
 
 moviesRoutes.patch(
   '/:id',
@@ -23,5 +25,3 @@ moviesRoutes.patch(
   isMovieNameRegistered,
   updatePartialMovie
 );
-
-moviesRoutes.delete('/:id', isMovieIdValid, deleteMovie);
