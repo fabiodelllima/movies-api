@@ -37,7 +37,13 @@ export const readMovies = async (
       req.query.category
     );
 
+    query = `SELECT * FROM movies;`;
     const data = await client.query(query);
+
+    if (data.rows.length === 0) {
+      return res.status(200).json(data.rows);
+    }
+
     return res.status(200).json(data.rows);
   }
 
