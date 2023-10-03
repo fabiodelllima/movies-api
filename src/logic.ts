@@ -50,7 +50,7 @@ export const readMovies = async (
   return res.status(200).json(data.rows);
 };
 
-export const readOneMovie = async (
+export const readMovieById = async (
   req: Request,
   res: Response
 ): Promise<Response> => {

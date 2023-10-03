@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import format from 'pg-format';
 import { client } from '../database';
 
-export const isMovieNameRegistered = async (
+export const isMovieNameAvailable = async (
   req: Request,
   res: Response,
   next: NextFunction
