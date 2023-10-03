@@ -21,7 +21,6 @@ export const createMovie = async (
   );
 
   const data = await client.query(query);
-
   return res.status(201).json(data.rows[0]);
 };
 
@@ -61,7 +60,6 @@ export const readOneMovie = async (
   );
 
   const data = await client.query(query);
-
   return res.status(200).json(data.rows[0]);
 };
 
@@ -93,7 +91,6 @@ export const updatePartialMovie = async (
   );
 
   const data = await client.query(queryConfig);
-
   return res.status(200).json(data.rows[0]);
 };
 
@@ -107,6 +104,5 @@ export const deleteMovie = async (
   );
 
   await client.query(query);
-
   return res.status(204).json();
 };
