@@ -21,7 +21,6 @@ export const createMovie = async (
   );
 
   const data = await client.query(query);
-
   return res.status(201).json(data.rows[0]);
 };
 
@@ -29,18 +28,18 @@ export const readMovies = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  let query = `SELECT * FROM movies;`;
+  const query = `SELECT * FROM movies;`;
 
   if (req.query.category) {
-    query = format(
+    const queryByCategory = format(
       `SELECT * FROM movies WHERE category ILIKE %L;`,
       req.query.category
     );
 
-    query = `SELECT * FROM movies;`;
-    const data = await client.query(query);
+    const data = await client.query(queryByCategory);
 
     if (data.rows.length === 0) {
+      const data = await client.query(query);
       return res.status(200).json(data.rows);
     }
 
@@ -61,7 +60,6 @@ export const readOneMovie = async (
   );
 
   const data = await client.query(query);
-
   return res.status(200).json(data.rows[0]);
 };
 
@@ -93,7 +91,6 @@ export const updatePartialMovie = async (
   );
 
   const data = await client.query(queryConfig);
-
   return res.status(200).json(data.rows[0]);
 };
 
@@ -107,6 +104,5 @@ export const deleteMovie = async (
   );
 
   await client.query(query);
-
   return res.status(204).json();
 };
