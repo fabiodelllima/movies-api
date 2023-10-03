@@ -29,18 +29,18 @@ export const readMovies = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  let query = `SELECT * FROM movies;`;
+  const query = `SELECT * FROM movies;`;
 
   if (req.query.category) {
-    query = format(
+    const queryByCategory = format(
       `SELECT * FROM movies WHERE category ILIKE %L;`,
       req.query.category
     );
 
-    query = `SELECT * FROM movies;`;
-    const data = await client.query(query);
+    const data = await client.query(queryByCategory);
 
     if (data.rows.length === 0) {
+      const data = await client.query(query);
       return res.status(200).json(data.rows);
     }
 
