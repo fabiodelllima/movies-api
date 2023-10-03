@@ -3,7 +3,7 @@ import {
   createMovie,
   deleteMovie,
   readMovies,
-  readOneMovie,
+  readMovieById,
   updatePartialMovie,
 } from '../logic';
 import { isMovieIdValid } from '../middlewares/isMovieIdValid';
@@ -13,7 +13,7 @@ export const moviesRoutes = Router();
 
 moviesRoutes.get('/', readMovies);
 
-moviesRoutes.get('/:id', isMovieIdValid, readOneMovie);
+moviesRoutes.get('/:id', isMovieIdValid, readMovieById);
 
 moviesRoutes.post('/', isMovieNameRegistered, createMovie);
 
