@@ -7,7 +7,7 @@ import {
   updatePartialMovie,
 } from '../logic';
 import { isMovieIdValid } from '../middlewares/isMovieIdValid';
-import { isMovieNameRegistered } from '../middlewares/isMovieNameRegistered';
+import { isMovieNameAvailable } from '../middlewares/isMovieNameAvailable';
 
 export const moviesRoutes = Router();
 
@@ -15,13 +15,13 @@ moviesRoutes.get('/', readMovies);
 
 moviesRoutes.get('/:id', isMovieIdValid, readMovieById);
 
-moviesRoutes.post('/', isMovieNameRegistered, createMovie);
+moviesRoutes.post('/', isMovieNameAvailable, createMovie);
 
 moviesRoutes.delete('/:id', isMovieIdValid, deleteMovie);
 
 moviesRoutes.patch(
   '/:id',
   isMovieIdValid,
-  isMovieNameRegistered,
+  isMovieNameAvailable,
   updatePartialMovie
 );
