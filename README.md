@@ -1,46 +1,6 @@
 # Locadora de Filmes
 
-## Introdução
-
-Hoje você recebeu uma demanda inesperada. O gestor de uma _locadora de filmes_ entrou em contato solicitando seus serviços.
-
 O objetivo é elaborar um microsserviço que será utilizado em uma plataforma de streaming. Essa API terá o intuito de gerenciar a coleção de filmes disponíveis.
-
-Abaixo estão todas as regras de negócio definidas pelo cliente, tanto para a entrega quanto para a aplicação. Esse é um cliente muito exigente, portanto siga à risca todas as regras impostas.
-
-Vamos lá?!
-
-#
-
-    O repositório da entrega conta com um arquivo chamado movies_workspace. Esse arquivo é um documento de design utilizado no insomnia.
-    Ele contém todas as rotas necessárias para que a aplicação esteja de acordo com as regras impostas.
-    Esse arquivo também será utilizado por instrutores e monitores na correção das entregas.
-
-    O workspace em questão possui duas páginas:
-      Página para Debug:
-        - pode ser utilizado a vontade e ter seus valores para criação, listagem, atualização ou deleção, alterados sem problemas.
-
-      Página para Testes:
-        - NUNCA ALTERE NENHUM TESTE OU ROTA DA PÁGINA DE TESTES;
-        - ATENÇÃO: sempre REINICIE o servidor e DROP SUA TABELA E RECRIE NOVAMENTE, antes de cada novo teste ou bateria de testes, que for executar;
-
-#
-
-## Regras da entrega
-
-A entrega deve seguir as seguintes regras:
-
-- O código deve estar em TypeScript, caso não esteja a **entrega será zerada**.
-- Deverá ser utilizado um banco de dados **_postgres_** para a elaboração da API.
-- O nome da tabela, das colunas e demais especificações, devem ser seguidas a risca. Caso tenha divergência, **será descontado nota**.
-- Deve conter uma pasta **sql** na **raiz do projeto** com dois arquivos:
-  - **create_table.sql**: contendo a criação da tabela **movie**;
-    - deve conter **APENAS** a criação da **TABELA**.
-  - **diagram.png/jgp**: um arquivo **_.png_** ou **_.jpg_** contendo o diagrama da tabela.
-  - caso o arquivo **_create_table.sql_** não exista, **a entrega será zerada**.
-- A organização de arquivos deve seguir o que foi visto previamente.
-
-#
 
 ## Tabela
 
@@ -54,8 +14,6 @@ O nome da tabela **deve** ser **movies**.
 | **duration** | inteiro e não nulo.                          |
 | **price**    | inteiro e não nulo.                          |
 
-#
-
 ## Endpoints da aplicação
 
 | Método | Endpoint    | Responsabilidade       |
@@ -65,8 +23,6 @@ O nome da tabela **deve** ser **movies**.
 | GET    | /movies/:id | Buscar filme por id    |
 | PATCH  | /movies/:id | Atualizar filme por id |
 | DELETE | /movies/:id | Deletar filme por id   |
-
-#
 
 ## Regras da aplicação
 
@@ -99,8 +55,6 @@ O nome da tabela **deve** ser **movies**.
       "message": "Movie name already exists!"
     }
     ```
-
-#
 
 ## Exemplos de requisição
 
@@ -259,9 +213,3 @@ O exemplo abaixo foi realizado na seguinte rota: **/movies/1**.
 | Resposta do servidor: |
 |-|
 |**Status code:** **_204 NO CONTENT._**|
-
-## Importante!
-
-Não esqueça de adicionar **_team-m4-correcoes_** no seu repositório do github, para que seja possível realizarmos as correções.
-
-Também não se esqueça de enviar o link do repositório na submissão da entrega.
