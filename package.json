@@ -1,5 +1,5 @@
 {
-  "name": "m4-s2-movies-fabiodelllima",
+  "name": "movies-api",
   "version": "1.0.0",
   "scripts": {
     "dev": "tsnd --respawn src/app.ts",
